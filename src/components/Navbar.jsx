@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaHome, FaSolarPanel, FaUserTie, FaCalendarDay, FaTasks } from 'react-icons/fa';
 import sustainfyLogo from "../assets/sustainfyLogo.svg";
 import profile from "../assets/profile.svg";
+import ProfileDropdown from './ProfileDropdown'; // import the ProfileDropdown component
 
 const Navbar = () => {
   const [active, setActive] = useState('Home');
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef(null);
 
   const handleNavClick = (link) => {
     setActive(link);
+  };
+
+  const handleProfileClick = () => {
+    setProfileOpen(!profileOpen);
+  };
+
+  const handleLogout = () => {
+    // Implement logout functionality here
+    console.log('User logged out');
+  };
+
+  const profileData = {
+    id: 'pv_admin@#1',
+    name: 'Ruturaj Deshmukh',
+    email: 'ruturaj@example.com',
+    admin_contact_number: '123-456-7890',
   };
 
   const navItems = [
@@ -17,6 +36,19 @@ const Navbar = () => {
     { name: 'Daily Updates', icon: <FaCalendarDay className="mr-2" /> },
     { name: 'Work Review', icon: <FaTasks className="mr-2" /> }
   ];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-white shadow-md py-2 px-6">
@@ -34,20 +66,23 @@ const Navbar = () => {
               key={item.name}
               href="#"
               onClick={() => handleNavClick(item.name)}
-              className={`flex items-center text-gray-600 onclick:text-[#56BA28] ${active === item.name ? 'border-b-2 border-[#56BA28] text-[#56BA28] ' : ''}`}
+              className={`flex items-center text-gray-600 ${active === item.name ? 'border-b-2 border-[#56BA28] text-[#56BA28]' : ''}`}
             >
               {item.icon}
               <span className="hidden md:inline">{item.name}</span>
             </a>
           ))}
         </div>
-        <div className="flex items-center border border-gray-600  rounded-lg px-2">
-          <img
-            src={profile}
-            alt="User"
-            className="h-8 w-8 rounded-lg mr-3 py-1"
-          />
-          <button className="hidden md:inline font- text-lg text-gray-600 ">Ruturaj Deshmukh</button>
+        <div className="relative" ref={profileRef}>
+          <div className="flex items-center border border-gray-600 rounded-lg px-2 cursor-pointer" onClick={handleProfileClick}>
+            <img
+              src={profile}
+              alt="User"
+              className="h-8 w-8 rounded-lg mr-3 py-1"
+            />
+            <span className="hidden md:inline font-semibold text-lg text-gray-600">Ruturaj Deshmukh</span>
+          </div>
+          {profileOpen && <ProfileDropdown onLogout={handleLogout} profileData={profileData} />}
         </div>
       </div>
     </nav>

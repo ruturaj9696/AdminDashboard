@@ -1,15 +1,12 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import CrateClientForm from './components/plant/CrateClientForm';
-import PlantInformation from './components/PlantLayout.jsx/PlantInformation';
-import BillAnalysis from './components/PlantLayout.jsx/BillAnalysis';
+
+import BillAnalysisCalculator from './components/PlantLayout.jsx/BillAnalysis/BillAnalysisCalculator';
+import BillAnalysis from './components/PlantLayout.jsx/BillAnalysis/BillAnalysis';
 
 const App = () => {
   return (
     <div>
-      {/* <Navbar/> */}
-      {/* <CrateClientForm/> */}
-      {/* <PlantInformation/> */}
+      {/* <BillAnalysisCalculator/> */}
       <BillAnalysis/>
     </div>
   );

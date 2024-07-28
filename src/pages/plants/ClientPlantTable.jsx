@@ -1,143 +1,338 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { FiEdit, FiTrash2 } from 'react-icons/fi';
-import { debounce } from 'lodash';
-
+import React, { useState, useEffect, useCallback } from "react";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { debounce } from "lodash";
+import { FaSolarPanel } from "react-icons/fa";
+import { IoIosSearch } from "react-icons/io";
+import profile from "../../assets/profile.svg";
 const clients = [
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Ruturaj Deshmukh",
+    contact: "234567890",
+    email: "client@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Shrinivas Deshmukh",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Shinde',
-    contact: '234567890',
-    email: 'client1@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Shrinivas Deshmukh",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'ruturajrao@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Swapnil borude",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Swapnil borude",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Swapnil borude",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Swapnil borude",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Swapnil borude",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC98",
+    name: "Swapnil borude",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
   {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
+    id: "#PVC123",
+    name: "Swapnil ",
+    contact: "234567890",
+    email: "Shrinivas@example.com",
+    adminReference: "admin@example.com",
     noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
+    imageUrl: "https://via.placeholder.com/150",
+    plants: [
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+      {
+        id: "PID123",
+        name: "Plant_123",
+        location: "Pune",
+        capacity: 2000,
+        inverterCapacity: 2000,
+        shrinvas: "demon",
+      },
+    ],
   },
-  
-  {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
-    noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
-  },
-  
-  {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
-    noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
-  },
-  
-  {
-    id: '#PVC123',
-    name: 'Ruturaj Deshmukh',
-    contact: '234567890',
-    email: 'client@example.com',
-    adminReference: 'admin@example.com',
-    noOfPlants: 4,
-    imageUrl: 'https://via.placeholder.com/150'
-  },
-  
 ];
 
 const ClientPlantTable = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [visibleClient, setVisibleClient] = useState(null);
+
+  const toggleDropdown = (clientId) => {
+    setVisibleClient(visibleClient === clientId ? null : clientId);
+  };
 
   const debouncedSearch = useCallback(
     debounce((query) => {
@@ -152,32 +347,36 @@ const ClientPlantTable = () => {
     debouncedSearch(query);
   };
 
-  const filteredClients = clients.filter(client => 
-    client.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
-    client.contact.includes(debouncedQuery) ||
-    client.email.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
-    client.adminReference.toLowerCase().includes(debouncedQuery.toLowerCase())
+  const filteredClients = clients.filter(
+    (client) =>
+      client.name.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+      client.contact.includes(debouncedQuery) ||
+      client.email.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+      client.adminReference.toLowerCase().includes(debouncedQuery.toLowerCase())
   );
 
   return (
-    <div className="p-8 bg-white rounded-lg ">
+    <div className="px-8 bg-white rounded-lg ">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4">
         <h2 className="text-xl font-bold mb-4 lg:mb-0">Client/Plant Table</h2>
-        <div className="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0 lg:space-x-2">
-          <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
-            + New Clients
+        <div className="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0 lg:space-x-2"></div>
+      </div>
+
+      <div className="flex justify-between my-2 mb-5">
+        <button className="  text-[#56BA28] border border-[#56BA28] px-4 py-2 rounded-lg">
+          + New Clients
+        </button>
+        <div className="relative w-full lg:w-64">
+          <input
+            type="text"
+            placeholder="Search here"
+            className="border border-[#56BA28] rounded-lg px-4 py-2 w-full focus:outline-none"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+          <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <IoIosSearch />
           </button>
-          <div className="relative w-full lg:w-64">
-            <input
-              type="text"
-              placeholder="Search here"
-              className="border border-gray-300 rounded-lg px-4 py-2 w-full lg:w-auto focus:outline-none"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <button className="absolute right-0 top-0 mt-2 mr-3 text-gray-400">
-            </button>
-          </div>
         </div>
       </div>
       <div className="overflow-x-auto">
@@ -195,36 +394,98 @@ const ClientPlantTable = () => {
           </thead>
           <tbody>
             {filteredClients.map((client, index) => (
-              <tr key={index} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b">{client.id}</td>
-                <td className="py-2 px-4 border-b flex items-center">
-                  <img
-                    className="w-8 h-8 rounded-full mr-2"
-                    src={client.imageUrl}
-                    alt="Client"
-                  />
-                  {client.name}
-                </td>
-                <td className="py-2 px-4 border-b">{client.contact}</td>
-                <td className="py-2 px-4 border-b">{client.email}</td>
-                <td className="py-2 px-4 border-b">{client.adminReference}</td>
-                <td className="py-2 px-4 border-b">{client.noOfPlants}</td>
-                <td className="py-2 px-4 border-b flex space-x-2">
-                  <button className="text-blue-500">
-                    <FiEdit />
-                  </button>
-                  <button className="text-red-500">
-                    <FiTrash2 />
-                  </button>
-                </td>
-              </tr>
+              <React.Fragment key={index}>
+                <tr
+                  className="hover:bg-gray-100"
+                  onClick={() => toggleDropdown(client.id)}
+                >
+                  <td className="py-2 px-4 border-b">{client.id}</td>
+                  <td className="py-2 px-4 border-b flex items-center">
+                    <img
+                      className="w-8 h-8 rounded-full mr-2"
+                      src={profile}
+                      alt="Client"
+                    />
+                    {client.name}
+                  </td>
+                  <td className="py-2 px-4 border-b">{client.contact}</td>
+                  <td className="py-2 px-4 border-b">{client.email}</td>
+                  <td className="py-2 px-4 border-b">
+                    {client.adminReference}
+                  </td>
+                  <td className="py-2 px-4 border-b">{client.noOfPlants}</td>
+                  <td className="py-2 px-4 border-b flex space-x-2">
+                    <button className="text-blue-500">
+                      <FiEdit />
+                    </button>
+                  </td>
+                </tr>
+                {visibleClient === client.id && (
+                  <tr>
+                    <td colSpan="7" className="p-0">
+                      <table className="min-w-full bg-gray-50">
+                        <thead>
+                          <tr>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Plant ID
+                            </th>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Plant Name
+                            </th>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Location
+                            </th>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Plant Capacity
+                            </th>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Inverter Capacity
+                            </th>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Plant Layout
+                            </th>
+                            <th className="py-2 px-4 bg-gray-200 border text-start">
+                              Plant Layout
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {client.plants.map((plant) => (
+                            <tr key={plant.id}>
+                              <td className="py-2 px-4 border">{plant.id}</td>
+                              <td className="py-2 px-4 border  flex ">
+                                <FaSolarPanel className="text-[#56BA28] mt-1 m-1" />
+                                {plant.name}
+                              </td>
+                              <td className="py-2 px-4 border">
+                                {plant.location}
+                              </td>
+                              <td className="py-2 px-4 border">
+                                {plant.capacity}
+                              </td>
+                              <td className="py-2 px-4 border">
+                                {plant.inverterCapacity}
+                              </td>
+                              <td className="py-2 px-4 border cursor-pointer">
+                                View Layout
+                              </td>
+                              <td className="py-2 px-4 border cursor-pointer">
+                                View 
+                              </td>
+                              
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
             ))}
           </tbody>
         </table>
         {filteredClients.length === 0 && (
-          <div className="text-center py-4">
-            No clients found.
-          </div>
+          <div className="text-center py-4">No clients found.</div>
         )}
       </div>
     </div>

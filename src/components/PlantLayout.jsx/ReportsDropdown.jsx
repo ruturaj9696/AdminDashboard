@@ -7,7 +7,7 @@ const ReportsDropdown = () => {
 
   return (
     <div className="m-2 p-3 border border-gray-200 rounded-sm shadow-lg">
-      <div className="relative inline-block text-left w-full">
+      <div className="inline-block text-left w-full">
         <div>
           <button
             type="button"

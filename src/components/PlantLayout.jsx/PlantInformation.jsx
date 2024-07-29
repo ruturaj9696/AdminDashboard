@@ -12,7 +12,7 @@ const PlantInformation = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-sm p-6 max-w-lg mx-auto">
+    <div className="bg-white shadow-md rounded-sm p-6 max-w-lg">
       <div className='flex gap-2'>
       <img src={solarPanel} alt="solarPanel" className='h-6 mt-1'/>
       <h2 className="text-lg font-semibold mb-1">Plant Information</h2>

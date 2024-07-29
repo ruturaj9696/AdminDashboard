@@ -3,6 +3,10 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { debounce } from "lodash";
 import { FaSolarPanel } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { MdDeleteOutline } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
+
 import profile from "../../assets/profile.svg";
 import CrateClientForm from "../../components/plant/CrateClientForm";
 const clients = [
@@ -377,7 +381,7 @@ const ClientPlantTable = () => {
         >
           + New Clients
         </button>
-        <div className="relative w-full lg:w-64">
+        <div className=" bg-red-50 w-full lg:w-64">
           <input
             type="text"
             placeholder="Search here"
@@ -481,7 +485,15 @@ const ClientPlantTable = () => {
                                 View Layout
                               </td>
                               <td className="py-2 px-4 border cursor-pointer">
-                                View
+                                <button className=" mx-2">
+                                  <BsThreeDotsVertical />
+                                </button>
+                                <button className=" mx-2">
+                                  <CiEdit />
+                                </button>
+                                <button className="mx-2">
+                                  <MdDeleteOutline />
+                                </button>
                               </td>
                             </tr>
                           ))}

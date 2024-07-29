@@ -4,6 +4,7 @@ import { debounce } from "lodash";
 import { FaSolarPanel } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import profile from "../../assets/profile.svg";
+import CrateClientForm from "../../components/plant/CrateClientForm";
 const clients = [
   {
     id: "#PVC123",
@@ -329,7 +330,7 @@ const ClientPlantTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [visibleClient, setVisibleClient] = useState(null);
-
+  const [isCreateclientOpen, setIsCreateclientOpen] = useState(false);
   const toggleDropdown = (clientId) => {
     setVisibleClient(visibleClient === clientId ? null : clientId);
   };
@@ -355,6 +356,13 @@ const ClientPlantTable = () => {
       client.adminReference.toLowerCase().includes(debouncedQuery.toLowerCase())
   );
 
+  const openModal = () => {
+    setIsCreateclientOpen(true);
+  };
+  const closeModal = () => {
+    setIsCreateclientOpen(false);
+  };
+
   return (
     <div className="px-8 bg-white rounded-lg ">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4">
@@ -363,7 +371,10 @@ const ClientPlantTable = () => {
       </div>
 
       <div className="flex justify-between my-2 mb-5">
-        <button className="  text-[#56BA28] border border-[#56BA28] px-4 py-2 rounded-lg">
+        <button
+          onClick={openModal}
+          className="  text-[#56BA28] border border-[#56BA28] px-4 py-2 rounded-lg"
+        >
           + New Clients
         </button>
         <div className="relative w-full lg:w-64">
@@ -470,9 +481,8 @@ const ClientPlantTable = () => {
                                 View Layout
                               </td>
                               <td className="py-2 px-4 border cursor-pointer">
-                                View 
+                                View
                               </td>
-                              
                             </tr>
                           ))}
                         </tbody>
@@ -486,6 +496,20 @@ const ClientPlantTable = () => {
         </table>
         {filteredClients.length === 0 && (
           <div className="text-center py-4">No clients found.</div>
+        )}
+      </div>
+      <div>
+        {isCreateclientOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-4 rounded-md shadow-md  mx-auto">
+              <div className="flex justify-end font-bold">
+                <button onClick={closeModal} className="text-gray-500">
+                  &times;
+                </button>
+              </div>
+              <CrateClientForm />
+            </div>
+          </div>
         )}
       </div>
     </div>

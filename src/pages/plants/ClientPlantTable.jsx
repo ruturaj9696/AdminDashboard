@@ -6,9 +6,9 @@ import { IoIosSearch } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
-
 import profile from "../../assets/profile.svg";
 import CrateClientForm from "../../components/plant/CrateClientForm";
+
 const clients = [
   {
     id: "#PVC123",

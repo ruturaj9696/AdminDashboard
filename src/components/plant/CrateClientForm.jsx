@@ -82,11 +82,7 @@ const CrateClientForm = () => {
         >
           <div className="p-6 bg-white shadow-md rounded">
             <div className="flex gap-1">
-              <img
-                src={profileimage}
-                alt="profileimage"
-                className="pb-4  "
-              />
+              <img src={profileimage} alt="profileimage" className="pb-4  " />
               <h2 className="text-xl font-bold mb-4">Client Information</h2>
             </div>
             <div className="mb-4">
@@ -164,7 +160,11 @@ const CrateClientForm = () => {
         >
           <div className="p-6 bg-white shadow-md rounded">
             <div className="flex gap-1">
-              <img src={solarPanel} alt="profileimage" className="py-3 pt-0 h-7 w-7 mt-2"/>
+              <img
+                src={solarPanel}
+                alt="profileimage"
+                className="py-3 pt-0 h-7 w-7 mt-2"
+              />
               <h2 className="text-xl font-bold mb-4">Client Information</h2>
             </div>
 
@@ -185,7 +185,6 @@ const CrateClientForm = () => {
             </div>
             <button
               type="submit"
-
               className="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 "
             >
               Save

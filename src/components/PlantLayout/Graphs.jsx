@@ -196,9 +196,7 @@ const GraphCard = ({ title, chartData }) => (
 
 const Graphs = ({ chartData }) => (
   <div className="flex flex-col space-y-5">
-    <GraphCard
-      chartData={chartData.powerGeneration}
-    />
+    <GraphCard chartData={chartData.powerGeneration} />
     <GraphCard title="Irradiation" chartData={chartData.irradiation} />
     <GraphCard title="EPI" chartData={chartData.epi} />
   </div>
@@ -209,6 +207,7 @@ const Graph = () => {
 
   return (
     <div className="p-1">
+      <div className="font-semibold text-lg mx-2">Power Generation Graph</div>
       <div className="flex justify-center gap-2 mb-5">
         <button
           className="bg-gray-500 text-white m-1 p-2 rounded-lg"

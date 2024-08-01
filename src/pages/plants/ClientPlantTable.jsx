@@ -8,6 +8,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import profile from "../../assets/profile.svg";
 import CrateClientForm from "../../components/plant/CrateClientForm";
+import { useNavigate } from "react-router-dom";
 
 const clients = [
   {
@@ -20,7 +21,7 @@ const clients = [
     imageUrl: "https://via.placeholder.com/150",
     plants: [
       {
-        id: "PID123",
+        id: "PID1",
         name: "Plant_123",
         location: "Pune",
         capacity: 2000,
@@ -28,7 +29,7 @@ const clients = [
         shrinvas: "demon",
       },
       {
-        id: "PID123",
+        id: "PID2",
         name: "Plant_123",
         location: "Pune",
         capacity: 2000,
@@ -36,7 +37,7 @@ const clients = [
         shrinvas: "demon",
       },
       {
-        id: "PID123",
+        id: "PID3",
         name: "Plant_123",
         location: "Pune",
         capacity: 2000,
@@ -44,7 +45,7 @@ const clients = [
         shrinvas: "demon",
       },
       {
-        id: "PID123",
+        id: "PID4",
         name: "Plant_123",
         location: "Pune",
         capacity: 2000,
@@ -52,7 +53,7 @@ const clients = [
         shrinvas: "demon",
       },
       {
-        id: "PID123",
+        id: "PID5",
         name: "Plant_123",
         location: "Pune",
         capacity: 2000,
@@ -367,13 +368,13 @@ const ClientPlantTable = () => {
     setIsCreateclientOpen(false);
   };
 
+  const Navigate = useNavigate();
   return (
     <div className="px-8 bg-white rounded-lg ">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-4">
         <h2 className="text-xl font-bold mb-4 lg:mb-0">Client/Plant Table</h2>
         <div className="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0 lg:space-x-2"></div>
       </div>
-
       <div className="flex justify-between my-2 mb-5">
         <button
           onClick={openModal}
@@ -481,7 +482,12 @@ const ClientPlantTable = () => {
                               <td className="py-2 px-4 border">
                                 {plant.inverterCapacity}
                               </td>
-                              <td className="py-2 px-4 border cursor-pointer">
+                              <td
+                                className="py-2 px-4 border cursor-pointer"
+                                onClick={() => {
+                                  Navigate("/plant-layout");
+                                }}
+                              >
                                 View Layout
                               </td>
                               <td className="py-2 px-4 border cursor-pointer">

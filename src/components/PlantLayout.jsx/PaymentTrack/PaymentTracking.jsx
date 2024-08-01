@@ -50,7 +50,7 @@ const PaymentTrack = () => {
     setIsModalOpen(false);
   };
   return (
-    <div className="p-4 w-fit">
+    <div className="py-4 px-1 w-fit mx-auto bg-white border shadow-md rounded-sm">
       <table className="min-w-full bg-white">
         <thead>
           <tr>
@@ -113,7 +113,7 @@ const PaymentTrack = () => {
                 &times;
               </button>
             </div>
-            <PaymentCalculator/>
+            <PaymentCalculator />
           </div>
         </div>
       )}

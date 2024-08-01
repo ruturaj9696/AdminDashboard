@@ -14,7 +14,7 @@ const BillAnalysis = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white shadow-md rounded-sm  overflow-hidden mt-10">
+    <div className="max-w-lg mx-auto border bg-white shadow-md rounded-sm  overflow-hidden">
       <div className="p-4 text-left ml-10">
         <h2 className="text-lg font-semibold">Bill analysis</h2>
         <p>June 30 - July 30 </p>
@@ -56,10 +56,7 @@ const BillAnalysis = () => {
         </table>
       </div>
       <div className="flex justify-center">
-        <Button
-          text={"Calculate bill analysis"}
-          onClick={openModal}
-        />
+        <Button text={"Calculate bill analysis"} onClick={openModal} />
       </div>
       <div>
         {isModalOpen && (
@@ -70,7 +67,7 @@ const BillAnalysis = () => {
                   &times;
                 </button>
               </div>
-                <BillAnalysisCalculator/>
+              <BillAnalysisCalculator />
             </div>
           </div>
         )}

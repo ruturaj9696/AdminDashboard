@@ -1,10 +1,11 @@
 import React from "react";
-import PlantInformation from "../../components/PlantLayout.jsx/PlantInformation";
-import ReportsDropdown from "../../components/PlantLayout.jsx/ReportsDropdown";
-import FinancialAnalysis from "../../components/PlantLayout.jsx/FinancialAnalysis";
-import CleaningCycle from "../../components/PlantLayout.jsx/CleaningCycle";
-import BillAnalysis from "../../components/PlantLayout.jsx/BillAnalysis/BillAnalysis";
-import PaymentTracking from "../../components/PlantLayout.jsx/PaymentTrack/PaymentTracking";
+import PlantInformation from "../../components/PlantLayout/PlantInformation";
+import ReportsDropdown from "../../components/PlantLayout/ReportsDropdown";
+import FinancialAnalysis from "../../components/PlantLayout/FinancialAnalysis";
+import CleaningCycle from "../../components/PlantLayout/CleaningCycle";
+import BillAnalysis from "../../components/PlantLayout/BillAnalysis/BillAnalysis";
+import PaymentTracking from "../../components/PlantLayout/PaymentTrack/PaymentTracking";
+import Graph from "../../components/PlantLayout/Graphs";
 
 import { FaArrowLeft } from "react-icons/fa";
 const PlantLayout = () => {
@@ -28,7 +29,9 @@ const PlantLayout = () => {
       </div>
 
       <div className="grid grid-cols-2">
-        <div>Graphs</div>
+        <div>
+          <Graph/>
+        </div>
 
         <div>
           <div className="m-2">

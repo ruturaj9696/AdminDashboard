@@ -81,7 +81,7 @@ const chartConfigs = {
         {
           label: "Power Generation",
           data: [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160],
-          backgroundColor: "#4CAF50",
+          backgroundColor: "#3B3B3B",
         },
       ],
     },
@@ -104,7 +104,7 @@ const chartConfigs = {
         {
           label: "Irradiation",
           data: [60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170],
-          backgroundColor: "#FF9800",
+          backgroundColor: "#3B3B3B",
         },
       ],
     },
@@ -127,7 +127,7 @@ const chartConfigs = {
         {
           label: "EPI",
           data: [70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180],
-          backgroundColor: "#2196F3",
+          backgroundColor: "#3B3B3B",
         },
       ],
     },
@@ -139,7 +139,7 @@ const chartConfigs = {
         {
           label: "Power Generation",
           data: [100, 200, 300, 400, 500],
-          backgroundColor: "#4CAF50",
+          backgroundColor: "#3B3B3B",
         },
       ],
     },
@@ -149,7 +149,7 @@ const chartConfigs = {
         {
           label: "Irradiation",
           data: [200, 300, 400, 500, 600],
-          backgroundColor: "#FF9800",
+          backgroundColor: "#3B3B3B",
         },
       ],
     },
@@ -159,7 +159,7 @@ const chartConfigs = {
         {
           label: "EPI",
           data: [300, 400, 500, 600, 700],
-          backgroundColor: "#2196F3",
+          backgroundColor: "#3B3B3B",
         },
       ],
     },
@@ -197,7 +197,6 @@ const GraphCard = ({ title, chartData }) => (
 const Graphs = ({ chartData }) => (
   <div className="flex flex-col space-y-5">
     <GraphCard
-      title="Power Generation Graph"
       chartData={chartData.powerGeneration}
     />
     <GraphCard title="Irradiation" chartData={chartData.irradiation} />

@@ -9,6 +9,8 @@ import { CiEdit } from "react-icons/ci";
 import profile from "../../assets/profile.svg";
 import CrateClientForm from "../../components/plant/CrateClientForm";
 import { useNavigate } from "react-router-dom";
+import UpdateClientInformation from "../../components/plant/UpdateClientInformation";
+import PlantInformationpopup from "../../components/plant/PlantInformationpopup";
 
 const clients = [
   {
@@ -336,6 +338,8 @@ const ClientPlantTable = () => {
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [visibleClient, setVisibleClient] = useState(null);
   const [isCreateclientOpen, setIsCreateclientOpen] = useState(false);
+  const [isEditOpen, setIsisEditOpenOpen] = useState(false);
+  const [isPlantInformationOpen, setIsPlantInformationOpen] = useState(false);
   const toggleDropdown = (clientId) => {
     setVisibleClient(visibleClient === clientId ? null : clientId);
   };
@@ -368,6 +372,19 @@ const ClientPlantTable = () => {
     setIsCreateclientOpen(false);
   };
 
+  const openModaledit = () => {
+    setIsisEditOpenOpen(true);
+  };
+  const closeModaledit = () => {
+    setIsisEditOpenOpen(false);
+  };
+
+  const openplantInformation = () => {
+    setIsPlantInformationOpen(true);
+  };
+  const closeplantInformation = () => {
+    setIsPlantInformationOpen(false);
+  };
   const Navigate = useNavigate();
   return (
     <div className="px-8 bg-white rounded-lg ">
@@ -404,8 +421,8 @@ const ClientPlantTable = () => {
               <th className="py-2 px-4 border-b text-left">Contact</th>
               <th className="py-2 px-4 border-b text-left">Email</th>
               <th className="py-2 px-4 border-b text-left">Admin Reference</th>
-              <th className="py-2 px-4 border-b text-left">No of plants</th>
-              <th className="py-2 px-4 border-b text-left">Actions</th>
+              <th className="py-2 px-4 border-b text-center">No of plants</th>
+              <th className="py-2 px-4 border-b text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -429,9 +446,15 @@ const ClientPlantTable = () => {
                   <td className="py-2 px-4 border-b">
                     {client.adminReference}
                   </td>
-                  <td className="py-2 px-4 border-b">{client.noOfPlants}</td>
-                  <td className="py-2 px-4 border-b flex space-x-2">
-                    <button className="text-blue-500">
+                  <td className="py-2 px-4 border-b text-center">
+                    {client.noOfPlants}
+                  </td>
+                  <td className="py-2 px-4 border-b flex space-x-2 justify-center">
+                    <button
+                      onClick={() => {
+                        openModaledit();
+                      }}
+                    >
                       <FiEdit />
                     </button>
                   </td>
@@ -490,15 +513,15 @@ const ClientPlantTable = () => {
                               >
                                 View Layout
                               </td>
-                              <td className="py-2 px-4 border cursor-pointer">
-                                <button className=" mx-2">
+                              <td className="py-2 px-4 flex justify-center">
+                                <button
+                                  className=" mx-2 cursor-pointer"
+                                  onClick={openplantInformation}
+                                >
                                   <BsThreeDotsVertical />
                                 </button>
-                                <button className=" mx-2">
+                                <button className=" mx-2 cursor-pointer">
                                   <CiEdit />
-                                </button>
-                                <button className="mx-2">
-                                  <MdDeleteOutline />
                                 </button>
                               </td>
                             </tr>
@@ -526,6 +549,30 @@ const ClientPlantTable = () => {
                 </button>
               </div>
               <CrateClientForm />
+            </div>
+          </div>
+        )}
+        {isEditOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-4 rounded-md shadow-md  mx-auto">
+              <div className="flex justify-end font-bold">
+                <button onClick={closeModaledit} className="text-gray-500">
+                  &times;
+                </button>
+              </div>
+              <UpdateClientInformation />
+            </div>
+          </div>
+        )}
+        {isPlantInformationOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-4 rounded-md shadow-md  mx-auto">
+              <div className="flex justify-end font-bold">
+                <button onClick={closeplantInformation} className="text-gray-500">
+                  &times;
+                </button>
+              </div>
+              <PlantInformationpopup />
             </div>
           </div>
         )}

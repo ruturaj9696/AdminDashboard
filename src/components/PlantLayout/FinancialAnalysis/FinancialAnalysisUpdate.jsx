@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Button from "../Button";
 
 const FinancialAnalysisUpdate = () => {
   const [attributes, setAttributes] = useState([
@@ -19,14 +20,14 @@ const FinancialAnalysisUpdate = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white shadow-md rounded-lg overflow-hidden my-4">
+    <div className="max-w-sm mx-auto rounded-sm overflow-hidden my-4">
       <table className="min-w-full leading-normal">
         <thead>
           <tr>
-            <th className="px-5 py-3 bg-green-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            <th className="px-5 py-3 bg-[#AFDE9A] text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
               Details
             </th>
-            <th className="px-5 py-3 bg-green-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            <th className="px-5 py-3 bg-[#AFDE9A] text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
               Values
             </th>
           </tr>
@@ -50,13 +51,11 @@ const FinancialAnalysisUpdate = () => {
           ))}
         </tbody>
       </table>
-      <div className="px-5 py-4 bg-white border-t flex justify-end">
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-          Update details
-        </button>
+      <div className="px-5 py-4 bg-white border-t flex justify-center">
+        <Button text={"Update details"} />
       </div>
     </div>
   );
-}
+};
 
 export default FinancialAnalysisUpdate;

@@ -187,7 +187,7 @@ const commonOptions = {
 
 const GraphCard = ({ title, chartData }) => (
   <div className="mb-5 h-48 w-full">
-    <h3 className="text-lg font-bold mb-2">{title}</h3>
+    <h3 className="text-lg font-semibold mb-2">{title}</h3>
     <div className="h-full">
       <Bar data={chartData} options={commonOptions} />
     </div>
@@ -196,7 +196,7 @@ const GraphCard = ({ title, chartData }) => (
 
 const Graphs = ({ chartData }) => (
   <div className="flex flex-col space-y-5">
-    <GraphCard chartData={chartData.powerGeneration} />
+    <GraphCard title="Power Generation" chartData={chartData.powerGeneration} />
     <GraphCard title="Irradiation" chartData={chartData.irradiation} />
     <GraphCard title="EPI" chartData={chartData.epi} />
   </div>
@@ -206,8 +206,8 @@ const Graph = () => {
   const [view, setView] = useState("daily");
 
   return (
-    <div className="p-1">
-      <div className="font-semibold text-lg mx-2">Power Generation Graph</div>
+    <div className="p-1 m-4">
+      <div className="font-semibold text-lg"> Plant Analytics </div>
       <div className="flex justify-center gap-2 mb-5">
         <button
           className="bg-gray-500 text-white m-1 p-2 rounded-lg"

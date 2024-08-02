@@ -54,16 +54,16 @@ const PaymentTrack = () => {
       <table className="min-w-full bg-white">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-100">
+            <th className="py-2 px-4 border-b-2 border-gray-200 bg-[#AFDE9A]">
               Details
             </th>
-            <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-100">
+            <th className="py-2 px-4 border-b-2 border-gray-200 bg-[#AFDE9A]">
               Rs
             </th>
-            <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-100">
+            <th className="py-2 px-4 border-b-2 border-gray-200 bg-[#AFDE9A]">
               Status
             </th>
-            <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-100">
+            <th className="py-2 px-4 border-b-2 border-gray-200 bg-[#AFDE9A]">
               Date
             </th>
           </tr>

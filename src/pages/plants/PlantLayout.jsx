@@ -1,7 +1,7 @@
 import React from "react";
 import PlantInformation from "../../components/PlantLayout/PlantInformation";
 import ReportsDropdown from "../../components/PlantLayout/ReportsDropdown";
-import FinancialAnalysis from "../../components/PlantLayout/FinancialAnalysis";
+import FinancialAnalysis from "../../components/PlantLayout/FinancialAnalysis/FinancialAnalysis";
 import CleaningCycle from "../../components/PlantLayout/CleaningCycle";
 import BillAnalysis from "../../components/PlantLayout/BillAnalysis/BillAnalysis";
 import PaymentTracking from "../../components/PlantLayout/PaymentTrack/PaymentTracking";
@@ -32,26 +32,34 @@ const PlantLayout = () => {
         </span>
         <span className="m-2 text-[#607D8B]">View all plant details here.</span>
       </div>
-      <div className=" grid grid-cols-3">
-        <div className=" m-1 p-1 ">
-          <PlantInformation />
-          <div className=" m-2  p-4 mx-0 shadow-md rounded-sm border">
+      <div className="flex justify-around gap-8 h-full">
+        <div className="flex-1 m-1 p-1 bg-white flex flex-col">
+          <div className="flex-grow">
+            <PlantInformation />
+          </div>
+          <div className="m-2 mb-0 p-4 mx-0 shadow-md rounded-sm border flex-grow-0">
             <ReportsDropdown />
           </div>
         </div>
-        <div className=" my-2">
-          <CleaningCycle />
+        <div className="flex-1 m-2 bg-white flex flex-col">
+          <div className=" flex flex-grow justify-center border rounded-md">
+            <CleaningCycle />
+          </div>
         </div>
-        <FinancialAnalysis />
+        <div className="flex-1 flex flex-col bg-white">
+          <div className="flex flex-grow justify-center">
+            <FinancialAnalysis />
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-2">
-        <div className="m-2 border shadow-md">
+      <div className="flex justify-between ">
+        <div className="m-2 border shadow-md w-2/3">
           <Graph />
         </div>
 
-        <div>
-          <div className="m-2">
+        <div className="w-1/3">
+          <div className="m-2 ">
             <BillAnalysis />
           </div>
           <div className="m-2">

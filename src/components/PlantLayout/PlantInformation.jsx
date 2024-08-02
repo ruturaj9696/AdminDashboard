@@ -14,7 +14,7 @@ const PlantInformation = () => {
   return (
     <div className="bg-white shadow-md rounded-sm p-4 sm:p-6 w-full border">
       <div className="flex items-center gap-2 mb-4">
-        <img src={solarPanel} alt="solarPanel" className="h-6 sm:h-8" />
+        {/* <img src={solarPanel} alt="solarPanel" className="h-6 sm:h-8" /> */}
         <h2 className="text-lg font-semibold">Plant Information</h2>
       </div>
       <div className="space-y-2 sm:space-y-1">

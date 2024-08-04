@@ -14,7 +14,7 @@ const BillAnalysis = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto border bg-white shadow-md rounded-sm  overflow-hidden">
+    <div className=" w-full border bg-white shadow-md rounded-sm overflow-hidden">
       <div className="p-4 text-left ml-10">
         <h2 className="text-lg font-semibold">Bill analysis</h2>
         <p>June 30 - July 30 </p>

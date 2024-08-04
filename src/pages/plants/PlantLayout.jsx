@@ -32,7 +32,7 @@ const PlantLayout = () => {
         </span>
         <span className="m-2 text-[#607D8B]">View all plant details here.</span>
       </div>
-      <div className="flex justify-around gap-8 h-full">
+      <div className="flex justify-around h-full">
         <div className="flex-1 m-1 p-1 bg-white flex flex-col">
           <div className="flex-grow">
             <PlantInformation />
@@ -46,23 +46,23 @@ const PlantLayout = () => {
             <CleaningCycle />
           </div>
         </div>
-        <div className="flex-1 flex flex-col bg-white">
-          <div className="flex flex-grow justify-center">
+        <div className="flex-1 m-2 bg-white flex flex-col">
+          <div className=" flex flex-grow justify-center border rounded-md">
             <FinancialAnalysis />
           </div>
         </div>
       </div>
 
-      <div className="flex justify-between ">
-        <div className="m-2 border shadow-md w-2/3">
+      <div className="flex justify-around">
+        <div className="mx-2 border rounded-md shadow-md w-2/3">
           <Graph />
         </div>
 
-        <div className="w-1/3">
-          <div className="m-2 ">
+        <div className="w-1/3 rounded-md mr-2 ml-1">
+          <div className="mb-2">
             <BillAnalysis />
           </div>
-          <div className="m-2">
+          <div className="">
             <PaymentTracking />
           </div>
         </div>

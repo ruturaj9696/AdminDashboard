@@ -23,8 +23,8 @@ const FinancialAnalysis = () => {
     setIsModalOpen(false);
   };
   return (
-    <div className="max-w-md">
-      <div className="border shadow-md rounded-sm overflow-hidden mt-2">
+    <div className="w-full">
+      <div className="border shadow-md rounded-sm overflow-hidden w-full">
         <div className="flex justify-between mx-2 text-lg font-semibold py-2">
           <div>Financial Analysis</div>
           <button

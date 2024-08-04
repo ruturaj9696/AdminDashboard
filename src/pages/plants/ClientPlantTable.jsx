@@ -11,6 +11,7 @@ import CrateClientForm from "../../components/plant/CrateClientForm";
 import { useNavigate } from "react-router-dom";
 import UpdateClientInformation from "../../components/plant/UpdateClientInformation";
 import PlantInformationpopup from "../../components/plant/PlantInformationpopup";
+import EditPlant from "../../components/plant/EditPlant";
 
 const clients = [
   {
@@ -340,6 +341,7 @@ const ClientPlantTable = () => {
   const [isCreateclientOpen, setIsCreateclientOpen] = useState(false);
   const [isEditOpen, setIsisEditOpenOpen] = useState(false);
   const [isPlantInformationOpen, setIsPlantInformationOpen] = useState(false);
+  const [isEditInformationOpen, setIsEditInformationOpen] = useState(false);
   const toggleDropdown = (clientId) => {
     setVisibleClient(visibleClient === clientId ? null : clientId);
   };
@@ -385,6 +387,12 @@ const ClientPlantTable = () => {
   const closeplantInformation = () => {
     setIsPlantInformationOpen(false);
   };
+  const openEditplantInformation = () => {
+    setIsEditInformationOpen(true);
+  };
+  const closeEditeplantInformation = () => {
+    setIsEditInformationOpen(false);
+  };
   const Navigate = useNavigate();
   return (
     <div className="px-8 bg-white rounded-lg ">
@@ -407,9 +415,6 @@ const ClientPlantTable = () => {
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-            <IoIosSearch />
-          </button>
         </div>
       </div>
       <div className="overflow-x-auto">
@@ -520,7 +525,9 @@ const ClientPlantTable = () => {
                                 >
                                   <BsThreeDotsVertical />
                                 </button>
-                                <button className=" mx-2 cursor-pointer">
+                                <button className=" mx-2 cursor-pointer"
+                                onClick={openEditplantInformation}
+                                >
                                   <CiEdit />
                                 </button>
                               </td>
@@ -573,6 +580,18 @@ const ClientPlantTable = () => {
                 </button>
               </div>
               <PlantInformationpopup />
+            </div>
+          </div>
+        )}
+        {isEditInformationOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-4 rounded-md shadow-md  mx-auto">
+              <div className="flex justify-end font-bold">
+                <button onClick={closeEditeplantInformation} className="text-gray-500">
+                  &times;
+                </button>
+              </div>
+              <EditPlant/>
             </div>
           </div>
         )}

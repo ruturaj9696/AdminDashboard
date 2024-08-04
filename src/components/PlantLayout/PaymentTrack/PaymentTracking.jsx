@@ -50,7 +50,7 @@ const PaymentTrack = () => {
     setIsModalOpen(false);
   };
   return (
-    <div className="py-4 px-1 w-fit mx-auto bg-white border shadow-md rounded-sm">
+    <div className="py-4 px-1 w-full mx-auto bg-white border shadow-md rounded-sm">
       <table className="min-w-full bg-white">
         <thead>
           <tr>

@@ -453,6 +453,11 @@ const ClientPlantTable = () => {
                   </td>
                   <td className="py-2 px-4 border-b text-center">
                     {client.noOfPlants}
+                    {visibleClient && (
+                      <button className="border px-1 rounded-md pb-0.5 m-0 ml-2">
+                        +
+                      </button>
+                    )}
                   </td>
                   <td className="py-2 px-4 border-b flex space-x-2 justify-center">
                     <button
@@ -525,8 +530,9 @@ const ClientPlantTable = () => {
                                 >
                                   <BsThreeDotsVertical />
                                 </button>
-                                <button className=" mx-2 cursor-pointer"
-                                onClick={openEditplantInformation}
+                                <button
+                                  className=" mx-2 cursor-pointer"
+                                  onClick={openEditplantInformation}
                                 >
                                   <CiEdit />
                                 </button>
@@ -575,7 +581,10 @@ const ClientPlantTable = () => {
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-4 rounded-md shadow-md  mx-auto">
               <div className="flex justify-end font-bold">
-                <button onClick={closeplantInformation} className="text-gray-500">
+                <button
+                  onClick={closeplantInformation}
+                  className="text-gray-500"
+                >
                   &times;
                 </button>
               </div>
@@ -587,11 +596,14 @@ const ClientPlantTable = () => {
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-4 rounded-md shadow-md  mx-auto">
               <div className="flex justify-end font-bold">
-                <button onClick={closeEditeplantInformation} className="text-gray-500">
+                <button
+                  onClick={closeEditeplantInformation}
+                  className="text-gray-500"
+                >
                   &times;
                 </button>
               </div>
-              <EditPlant/>
+              <EditPlant />
             </div>
           </div>
         )}

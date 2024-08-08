@@ -30,7 +30,7 @@ const chartConfigs = {
             10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 90, 80, 70, 60, 50, 40, 30,
             20, 10, 15, 25, 35, 45, 55, 65, 75, 85, 95, 90, 80, 90,
           ],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -43,7 +43,7 @@ const chartConfigs = {
             20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 100, 90, 50, 60, 70, 90,
             50, 60, 70, 90, 100, 80, 90, 100, 50, 100, 90, 80, 70, 60, 50,
           ],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -56,7 +56,7 @@ const chartConfigs = {
             20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 100, 90, 50, 60, 70, 90,
             50, 60, 70, 90, 100, 80, 90, 100, 50, 100, 90, 80, 70, 60, 50,
           ],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -81,7 +81,7 @@ const chartConfigs = {
         {
           label: "Power Generation",
           data: [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -104,7 +104,7 @@ const chartConfigs = {
         {
           label: "Irradiation",
           data: [60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -127,7 +127,7 @@ const chartConfigs = {
         {
           label: "EPI",
           data: [70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -139,7 +139,7 @@ const chartConfigs = {
         {
           label: "Power Generation",
           data: [100, 200, 300, 400, 500],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -149,7 +149,7 @@ const chartConfigs = {
         {
           label: "Irradiation",
           data: [200, 300, 400, 500, 600],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -159,7 +159,7 @@ const chartConfigs = {
         {
           label: "EPI",
           data: [300, 400, 500, 600, 700],
-          backgroundColor: "#3B3B3B",
+          backgroundColor: "#56BA28",
         },
       ],
     },
@@ -210,19 +210,19 @@ const Graph = () => {
       <div className="font-semibold text-lg"> Plant Analytics </div>
       <div className="flex justify-center gap-2 mb-5">
         <button
-          className="bg-gray-500 text-white m-1 p-2 rounded-lg"
+          className="bg-[#AFDE9A] text-black font-semibold m-1 p-2 rounded-lg"
           onClick={() => setView("daily")}
         >
           Daily
         </button>
         <button
-          className="bg-gray-500 text-white m-1 p-2 rounded-lg"
+          className="bg-[#AFDE9A] text-black font-semibold m-1 p-2 rounded-lg"
           onClick={() => setView("monthly")}
         >
           Monthly
         </button>
         <button
-          className="bg-gray-500 text-white m-1 p-2 rounded-lg"
+          className="bg-[#AFDE9A] text-black font-semibold m-1 p-2 rounded-lg"
           onClick={() => setView("yearly")}
         >
           Yearly

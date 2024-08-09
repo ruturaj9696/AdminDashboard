@@ -5,12 +5,14 @@ import Calendar from "../../components/DailyUpdates/Calendar";
 
 const Dailyupdate = () => {
   return (
-    <div>
-      <div className="flex justify-between m-4 gap-8">
-      <PlantInformation />
-      <SearchPlant />
+    <div className="p-4">
+      <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-8">
+        <PlantInformation />
+        <SearchPlant />
       </div>
-      <Calendar />
+      <div className="mt-4">
+        <Calendar />
+      </div>
     </div>
   );
 };

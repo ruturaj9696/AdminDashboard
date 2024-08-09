@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlantInformation = () => {
   return (
-    <div className="w-full mx-auto p-4 bg-white shadow-md rounded-md">
+    <div className="w-full mx-auto p-4 bg-white shadow-md rounded-md border">
       <div className="text-gray-600 mb-4">
         <span className="font-semibold">Selected Plant :</span> 
         <span className="text-green-500 ml-2">Sample Plant123</span>

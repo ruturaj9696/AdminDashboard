@@ -5,26 +5,26 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 export default function SearchPlant() {
   const reports = [
-    "Alpha",
-    "Beta",
-    "Gamma",
-    "Delta",
-    "Epsilon",
-    "Zeta",
-    "Eta",
-    "Theta",
-    "Iota",
-    "Kappa",
-    "Lambda",
-    "Mu",
-    "Nu",
-    "Xi",
-    "Omicron",
-    "Pi",
-    "Rho",
-    "Sigma",
-    "Tau",
-    "Upsilon",
+    "Plant 1",
+    "Plant 2",
+    "Plant 3",
+    "Plant 4",
+    "Plant 5",
+    "Plant 6",
+    "Plant 7",
+    "Plant 8",
+    "Plant 9",
+    "Plant 10",
+    "Plant 11",
+    "Plant 12",
+    "Plant 13",
+    "Plant 14",
+    "Plant 15",
+    "Plant 16",
+    "Plant 17",
+    "Plant 18",
+    "Plant 19",
+    "Plant 20",
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,11 +36,11 @@ export default function SearchPlant() {
   return (
     <Menu
       as="div"
-      className="relative inline-block text-left w-full bg-red- shadow-md bg-blue-40  px-3"
+      className="relative inline-block text-left w-full bg-red- shadow-md bg-blue-40  px-3 border rounded-md"
     >
       <div>
-        <h6 className="mb-2 my-8">Reports</h6>
-        <MenuButton className="inline-flex w-full justify-between rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 ">
+        <h6 className="md:mb-4 md:my-4 my-4">Reports</h6>
+        <MenuButton className="inline-flex mb-4 w-full justify-between rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 ">
           <span>Select one option</span>
           <ChevronDownIcon
             aria-hidden="true"
@@ -57,7 +57,7 @@ export default function SearchPlant() {
           <div className="px-4 py-2">
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Search Here..."
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}

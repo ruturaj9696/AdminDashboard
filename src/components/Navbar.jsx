@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaHome, FaSolarPanel, FaUserTie, FaCalendarDay, FaTasks } from 'react-icons/fa';
 import sustainfyLogo from "../assets/sustainfyLogo.svg";
 import profile from "../assets/profile.svg";
@@ -8,9 +9,29 @@ const Navbar = () => {
   const [active, setActive] = useState('Home');
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleNavClick = (link) => {
     setActive(link);
+    switch (link) {
+      case 'Home':
+        navigate('/home');
+        break;
+      case 'Plant':
+        navigate('/plant');
+        break;
+      case 'Technician':
+        navigate('/technician');
+        break;
+      case 'Daily Updates':
+        navigate('/daily-updates');
+        break;
+      case 'Work Review':
+        navigate('/work-review');
+        break;
+      default:
+        break;
+    }
   };
 
   const handleProfileClick = () => {

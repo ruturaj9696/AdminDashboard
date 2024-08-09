@@ -4,21 +4,48 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 export default function SearchPlant() {
-  const reports = ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon"];
-  
+  const reports = [
+    "Alpha",
+    "Beta",
+    "Gamma",
+    "Delta",
+    "Epsilon",
+    "Zeta",
+    "Eta",
+    "Theta",
+    "Iota",
+    "Kappa",
+    "Lambda",
+    "Mu",
+    "Nu",
+    "Xi",
+    "Omicron",
+    "Pi",
+    "Rho",
+    "Sigma",
+    "Tau",
+    "Upsilon",
+  ];
+
   const [searchTerm, setSearchTerm] = useState("");
-  
-  const filteredReports = reports.filter(report => 
+
+  const filteredReports = reports.filter((report) =>
     report.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <Menu as="div" className="relative inline-block text-left w-full">
+    <Menu
+      as="div"
+      className="relative inline-block text-left w-full bg-red- shadow-md bg-blue-40  px-3"
+    >
       <div>
-        <h6 className="mb-2">Reports</h6>
-        <MenuButton className="inline-flex w-full justify-between rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <h6 className="mb-2 my-8">Reports</h6>
+        <MenuButton className="inline-flex w-full justify-between rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 ">
           <span>Select one option</span>
-          <ChevronDownIcon aria-hidden="true" className="-mr-1 ml-2 h-5 w-5 text-gray-400" />
+          <ChevronDownIcon
+            aria-hidden="true"
+            className="-mr-1 ml-2 h-5 w-5 text-gray-400"
+          />
         </MenuButton>
       </div>
 
@@ -36,18 +63,6 @@ export default function SearchPlant() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <MenuItem>
-            {({ active }) => (
-              <button
-                className={`${
-                  active ? "bg-gray-100 text-gray-900" : "text-gray-700"
-                } block px-4 py-2 text-sm w-full text-left`}
-                onClick={() => console.log("Add new report")}
-              >
-                Add new report
-              </button>
-            )}
-          </MenuItem>
           {filteredReports.length > 0 ? (
             filteredReports.map((report, index) => (
               <MenuItem key={index}>
@@ -77,7 +92,9 @@ export default function SearchPlant() {
               </MenuItem>
             ))
           ) : (
-            <div className="px-4 py-2 text-sm text-gray-500">No results found</div>
+            <div className="px-4 py-2 text-sm text-gray-500">
+              No results found
+            </div>
           )}
         </div>
       </MenuItems>
